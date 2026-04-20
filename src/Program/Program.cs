@@ -16,7 +16,6 @@ namespace Ucu.Poo.RolePlayGame
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        /// holaa
         public static void Main(string[] args)
         {
             Console.WriteLine("¡Hola mundo!");
