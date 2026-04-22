@@ -6,14 +6,14 @@ namespace Ucu.Poo.RolePlayGame
     {
         public string Name { get; set; }
         public int AttackValue { get; }
-        public int DefenseValue { get; }
+        private int DefenseValue { get; }
         public int Health { get; set; }
 
         public Gigant(string name)
         {
             this.Name = name;
             this.AttackValue = 100;
-            this.DefenseValue = 50;
+            this.DefenseValue = 0;
             this.Health = 500;
         }
 

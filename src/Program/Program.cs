@@ -18,7 +18,10 @@ namespace Ucu.Poo.RolePlayGame
         /// </summary>
         public static void Main(string[] args)
         {
-            Console.WriteLine("¡Hola mundo!");
+            Gigant ogro = new Gigant("ogro");
+            ogro.ReceiveAttack(200);
+            Console.WriteLine("Gigante: " + ogro.Name);
+            Console.WriteLine("Vida actual de " + ogro.Name + " es " + ogro.Health);
         }
     }
 }
