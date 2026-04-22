@@ -1,8 +1,8 @@
-using System;
+using System
 
 namespace Ucu.Poo.RolePlayGame
 {
-    public class Giant
+    public class Elves
     {
         public string Name { get; set; }
         public int AttackValue { get; }
@@ -10,12 +10,12 @@ namespace Ucu.Poo.RolePlayGame
         private int InitialHealth { get; }
         public int Health { get; private set; }
 
-        public Giant(string name)
+        public Elves(string name)
         {
             this.Name = name;
-            this.AttackValue = 100;
-            this.DefenseValue = 0;
-            this.InitialHealth = 500;
+            this.AttackValue = 50;
+            this.DefenseValue = 20;
+            this.InitialHealth = 300;
             this.Health = this.InitialHealth;
         }
 
@@ -32,6 +32,6 @@ namespace Ucu.Poo.RolePlayGame
         {
             this.Health = this.InitialHealth;
         }
+
     }
 }
-
