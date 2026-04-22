@@ -2,14 +2,14 @@ using System;
 
 namespace Ucu.Poo.RolePlayGame
 {
-    public class Gigant
+    public class Giant
     {
         public string Name { get; set; }
         public int AttackValue { get; }
         private int DefenseValue { get; }
-        public int Health { get; set; }
+        public int Health { get; private set; }
 
-        public Gigant(string name)
+        public Giant(string name)
         {
             this.Name = name;
             this.AttackValue = 100;
