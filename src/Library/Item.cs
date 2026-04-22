@@ -7,7 +7,7 @@ namespace Ucu.Poo.RolePlayGame
         public string Name { get; }
         public int AttackValue { get; }
         public int DefenseValue { get; }
-    }
+    
 
     public Item(string name, int attackValue, int defenseValue)
         {
@@ -16,4 +16,5 @@ namespace Ucu.Poo.RolePlayGame
             this.DefenseValue = defenseValue;
 
         }
+    }
 }
