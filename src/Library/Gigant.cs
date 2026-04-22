@@ -11,24 +11,24 @@ namespace Ucu.Poo.RolePlayGame
 
         public Gigant(string name)
         {
-            Name = name;
-            AttackValue = 100;
-            DefenseValue = 50;
-            Health = 500;
+            this.Name = name;
+            this.AttackValue = 100;
+            this.DefenseValue = 50;
+            this.Health = 500;
         }
 
         public void ReceiveAttack(int attackDamage)
         {
-            int actualDamage = attackDamage - DefenseValue;
+            int actualDamage = attackDamage - this.DefenseValue;
             if (actualDamage > 0)
             {
-                Health -= actualDamage;
+                this.Health -= actualDamage;
             }
         }
 
         public void Cure()
         {
-            Health = 500;
+            this.Health = 500;
         }
     }
 }
