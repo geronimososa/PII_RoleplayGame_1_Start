@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Ucu.Poo.RolePlayGame
 {
@@ -9,6 +10,7 @@ namespace Ucu.Poo.RolePlayGame
         private int DefenseValue { get; }
         private int InitialHealth { get; }
         public int Health { get; private set; }
+        public List<Item> Equipment { get; private set; }
 
         public Wizard(string name)
         {
@@ -17,11 +19,13 @@ namespace Ucu.Poo.RolePlayGame
             this.DefenseValue = 80;
             this.InitialHealth = 150;
             this.Health = this.InitialHealth;
+            this.Equipment = new List<Item>();
+            this.Equipment.Add(new Item("Staff", 30, 0));
         }
 
         public void ReceiveAttack(int attackDamage)
         {
-            int actualDamage = attackDamage - this.DefenseValue;
+            int actualDamage = attackDamage - this.GetTotalDefense();
             if (actualDamage > 0)
             {
                 this.Health -= actualDamage;
@@ -33,5 +37,38 @@ namespace Ucu.Poo.RolePlayGame
             this.Health = this.InitialHealth;
         }
 
+        public void Attack(Knight target)
+        {
+            target.ReceiveAttack(this.GetTotalAttack());
+        }
+
+        public void AddItem(Item item)
+        {
+            this.Equipment.Add(item);
+        }
+
+        public void RemoveItem(Item item)
+        {
+            this.Equipment.Remove(item);
+        }
+        public int GetTotalAttack()
+        {
+            int total = this.AttackValue;
+            foreach (Item item in this.Equipment)
+            {
+                total += item.AttackValue;
+            }
+            return total;
+        }
+
+        public int GetTotalDefense()
+        {
+            int total = this.DefenseValue;
+            foreach (Item item in this.Equipment)
+            {
+                total += item.DefenseValue;
+            }
+            return total;
+        }
     }
 }

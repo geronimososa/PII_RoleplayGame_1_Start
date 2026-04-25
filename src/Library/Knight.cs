@@ -21,7 +21,9 @@ namespace Ucu.Poo.RolePlayGame
             this.InitialHealth = 300;
             this.Health = this.InitialHealth;
             this.Equipment = new List<Item>();
-
+            this.Equipment.Add(new Item("Sword", 50, 0));
+            this.Equipment.Add(new Item("Shield", 0, 20));
+            this.Equipment.Add(new Item("Armor", 0, 50));
         }
 
         public void ReceiveAttack(int attackDamage)
