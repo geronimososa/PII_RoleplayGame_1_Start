@@ -17,7 +17,10 @@
     ],
     "dotnet.defaultSolution": "ProjectTemplate.sln",
     "github.copilot.enable": {
-        "*": false
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
     },
     "githubPullRequests.codingAgent.codeLens": false,
 }
