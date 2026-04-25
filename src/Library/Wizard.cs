@@ -5,7 +5,7 @@ namespace Ucu.Poo.RolePlayGame
 {
     public class Wizard
     {
-        public string Name { get; set; }
+        public string Name { get; }
         public int AttackValue { get; }
         private int DefenseValue { get; }
         private int InitialHealth { get; }
@@ -37,7 +37,7 @@ namespace Ucu.Poo.RolePlayGame
             this.Health = this.InitialHealth;
         }
 
-        public void Attack(Knight target)
+        public void Attack(Wizard target)
         {
             target.ReceiveAttack(this.GetTotalAttack());
         }
