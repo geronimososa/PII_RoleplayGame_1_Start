@@ -11,7 +11,7 @@ namespace Ucu.Poo.RolePlayGame
         private int InitialHealth { get; }
         public int Health { get; private set; }
         public List<Item> Equipment { get; private set; }
-
+        public SpellsBook SpellsBook { get; private set; }
         public Elves(string name)
         {
             this.Name = name;
@@ -21,6 +21,7 @@ namespace Ucu.Poo.RolePlayGame
             this.Health = this.InitialHealth;
             this.Equipment = new List<Item>();
             this.Equipment.Add(new Item("Staff", 30, 0));
+            this.SpellsBook = new SpellsBook("Elves Book");
         }
 
         public void ReceiveAttack(int attackDamage)
@@ -58,6 +59,10 @@ namespace Ucu.Poo.RolePlayGame
             {
                 total += item.AttackValue;
             }
+            foreach (Spell spell in this.SpellsBook.Spells)
+            {
+                total += spell.AttackValue;
+            }
             return total;
         }
 
@@ -67,6 +72,10 @@ namespace Ucu.Poo.RolePlayGame
             foreach (Item item in this.Equipment)
             {
                 total += item.DefenseValue;
+            }
+            foreach (Spell spell in this.SpellsBook.Spells)
+            {
+                total += spell.DefenseValue;
             }
             return total;
         }
