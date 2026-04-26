@@ -22,6 +22,7 @@ namespace Ucu.Poo.RolePlayGame
             ogro.ReceiveAttack(200);
             Console.WriteLine("Gigante: " + ogro.Name);
             Console.WriteLine("Vida actual de " + ogro.Name + " es " + ogro.Health);
+            Console.WriteLine("Ataque total de " + ogro.Name + " es " + ogro.GetTotalAttack());
 
             Wizard mago = new Wizard("Mago de fuego");
             Console.WriteLine("Mago: " + mago.Name);
