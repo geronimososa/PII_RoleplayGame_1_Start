@@ -18,26 +18,34 @@ namespace Ucu.Poo.RolePlayGame
         /// </summary>
         public static void Main(string[] args)
         {
-            Giant ogro = new Giant("ogro");
-            ogro.ReceiveAttack(200);
+            Giant ogro = new Giant("Ogro");
             Console.WriteLine("Gigante: " + ogro.Name);
-            Console.WriteLine("Vida actual de " + ogro.Name + " es " + ogro.Health);
-            Console.WriteLine("Ataque total de " + ogro.Name + " es " + ogro.GetTotalAttack());
 
             Wizard mago = new Wizard("Mago de fuego");
             Console.WriteLine("Mago: " + mago.Name);
-            Console.WriteLine("Vida actual de " + mago.Name + " es " + mago.Health);
-            Spell fireball = new Spell("Bola de fuego", 40, 0);
+            Console.WriteLine("Daño de ataque del " + mago.Name + " es " + mago.GetTotalAttack());
+
+            Spell fireball = new Spell("Bola de fuego", 50, 0);
             mago.SpellsBook.AddSpell(fireball);
-            Console.WriteLine("Ataque total de " + mago.Name + " es " + mago.GetTotalAttack());
-            Console.WriteLine("Defensa total de " + mago.Name + " es " + mago.GetTotalDefense());  
+            Console.WriteLine("Ataque total de " + mago.Name + " es " + mago.GetTotalAttack()); 
+
+            ogro.ReceiveAttack(mago.GetTotalAttack());
+            Console.WriteLine("Salud del " + ogro.Name + " luego del ataque es " + ogro.Health);
+
+            mago.ReceiveAttack(ogro.GetTotalAttack());
+            Console.WriteLine("Salud del " + mago.Name + " después del ataque es " + mago.Health);
+
+            ogro.Cure();
+            Console.WriteLine("Salud del " + ogro.Name + " luego de curarse es " + ogro.Health);
 
             Elves elfo = new Elves("Elfo del bosque");
             Spell arrow = new Spell("Flecha mágica", 30, 0);
             elfo.SpellsBook.AddSpell(arrow);
             Console.WriteLine("Elfo: " + elfo.Name);
-            Console.WriteLine("Ataque total de " + elfo.Name + " es " + elfo.GetTotalAttack());
-            Console.WriteLine("Defensa total de " + elfo.Name + " es " + elfo.GetTotalDefense());
+            
+            ogro.ReceiveAttack(elfo.GetTotalAttack());
+            ogro.ReceiveAttack(mago.GetTotalAttack());
+            Console.WriteLine("Salud del " + ogro.Name + " luego de recibir varios ataques es " + ogro.Health);
         }
     }
 }
